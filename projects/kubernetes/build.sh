@@ -77,8 +77,6 @@ mv $KUBE_FUZZERS/mount-utils_fuzzer.go \
 mv $KUBE_FUZZERS/deployment_util_fuzzer.go \
    $SRC/kubernetes/pkg/controller/deployment/util/
 
-mv $KUBE_FUZZERS/api_roundtrip_fuzzer.go \
-   $SRC/kubernetes/test/fuzz/fuzzing/
 # Done moving fuzzers and tests
 #############################################################################
 
