@@ -47,9 +47,6 @@ export KUBE_FUZZERS=$SRC/cncf-fuzzing/projects/kubernetes
 # Move fuzzers from cncf-fuzzing and tests in Kubernetes
 #############################################################################
 
-mv $SRC/cncf-fuzzing/projects/kubernetes/roundtrip.go \
-   $SRC/kubernetes/staging/src/k8s.io/apimachinery/pkg/api/apitesting/roundtrip/
-
 mv $KUBE_FUZZERS/internal_kubelet_server_fuzzer.go \
    $SRC/kubernetes/pkg/kubelet/server/
 mv $SRC/kubernetes/pkg/kubelet/server/auth_test.go \
@@ -145,7 +142,6 @@ find $SRC/kubernetes/vendor/github.com/cilium/ebpf/internal/btf -name "fuzz.go" 
 #if [ "$SANITIZER" != "coverage" ]; then
    #compile_go_fuzzer k8s.io/kubernetes/test/fuzz/fuzzing FuzzApiMarshaling fuzz_api_marshaling
 #fi
-compile_go_fuzzer k8s.io/kubernetes/test/fuzz/fuzzing FuzzApiRoundtrip fuzz_api_roundtrip
 compile_go_fuzzer k8s.io/kubernetes/pkg/kubelet/kuberuntime FuzzKubeRuntime fuzz_kube_runtime
 compile_go_fuzzer k8s.io/kubernetes/pkg/kubelet FuzzSyncPod fuzz_sync_pod
 compile_go_fuzzer k8s.io/kubernetes/pkg/kubelet FuzzStrategicMergePatch fuzz_strategic_merge_patch
